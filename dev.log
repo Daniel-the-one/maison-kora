@@ -98,3 +98,51 @@ Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time-cli
  GET /collection 200 in 99ms (next.js: 6ms, application-code: 93ms)
 ✓ Compiled in 68ms
  GET /collection 200 in 97ms (next.js: 6ms, application-code: 91ms)
+ GET /collection 200 in 413ms (next.js: 4ms, application-code: 410ms)
+Error: Route "/collection/[slug]" used `params.slug`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at <unknown> (src\app\collection\[slug]\page.tsx:10:50)
+    at Array.find (<anonymous>)
+    at Page (src\app\collection\[slug]\page.tsx:10:20)
+   8 |
+   9 | export default function Page({ params }: { params: { slug: string } }) {
+> 10 |   const p = pagnes.find((x) => x.slug === params.slug);
+     |                                                  ^
+  11 |   if (!p) notFound();
+  12 |   const similaires = pagnes
+  13 |     .filter((x) => x.slug !== p.slug && x.collection === p.collection)
+ GET /collection/fleurs-de-cour 200 in 2.3s (next.js: 82ms, generate-params: 1973ms, application-code: 227ms)
+Error: Route "/collection/[slug]" used `params.slug`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at <unknown> (src\app\collection\[slug]\page.tsx:10:50)
+    at Array.find (<anonymous>)
+    at Page (src\app\collection\[slug]\page.tsx:10:20)
+   8 |
+   9 | export default function Page({ params }: { params: { slug: string } }) {
+> 10 |   const p = pagnes.find((x) => x.slug === params.slug);
+     |                                                  ^
+  11 |   if (!p) notFound();
+  12 |   const similaires = pagnes
+  13 |     .filter((x) => x.slug !== p.slug && x.collection === p.collection)
+Error: Route "/collection/[slug]": Could not validate `instant` because an error prevented the target segment from rendering.
+    at ignore-listed frames {
+  [cause]: Error: NEXT_HTTP_ERROR_FALLBACK;404
+      at Page (src\app\collection\[slug]\page.tsx:11:19)
+     9 | export default function Page({ params }: { params: { slug: string } }) {
+    10 |   const p = pagnes.find((x) => x.slug === params.slug);
+  > 11 |   if (!p) notFound();
+       |                   ^
+    12 |   const similaires = pagnes
+    13 |     .filter((x) => x.slug !== p.slug && x.collection === p.collection)
+    14 |     .slice(0, 3); {
+    environmentName: 'Prerender',
+    digest: 'NEXT_HTTP_ERROR_FALLBACK;404'
+  }
+}
+  Turbopack has seen frequent file updates and is waiting for the filesystem to settle (0.5s elapsed so far; last modified: "\\\\?\\E:\\maison-kora\\node_modules\\tailwind-merge\\src\\lib").
+✓ Compiled in 226ms
+ GET /collection 200 in 142ms (next.js: 6ms, application-code: 136ms)
+✓ Compiled in 103ms
+ GET /collection 200 in 65ms (next.js: 5ms, application-code: 60ms)
+✓ Compiled in 77ms
+ GET /collection 200 in 41ms (next.js: 3ms, application-code: 38ms)
+✓ Compiled in 88ms
+ GET /collection 200 in 64ms (next.js: 4ms, application-code: 60ms)
