@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { site } from "@/config/site";
 import {
@@ -13,6 +14,12 @@ import {
   ArrowUpRightIcon,
 } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
+
+function Year() {
+  const [y, setY] = useState<number | null>(null);
+  useEffect(() => setY(new Date().getFullYear()), []);
+  return <>{y ?? ""}</>;
+}
 
 const socialIcons = [
   { href: site.social.instagram, Icon: InstagramIcon, label: "Instagram" },
@@ -146,7 +153,7 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-creme/10 pt-8 text-xs text-creme/45 sm:flex-row">
           <p>
-            © {new Date().getFullYear()} {site.name}. Tous droits réservés.
+            © <Year /> {site.name}. Tous droits réservés.
           </p>
           <p className="flex items-center gap-2">
             <span>Marque fictive de démonstration</span>

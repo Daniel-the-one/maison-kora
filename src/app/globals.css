@@ -153,6 +153,16 @@ html.lenis body {
   background: var(--color-terracotta);
 }
 
+/* Bandeau défilant */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 /* Respect des préférences de mouvement */
 @media (prefers-reduced-motion: reduce) {
   *,

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Syne, Manrope } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import { site } from "@/config/site";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
@@ -81,11 +82,17 @@ export default function RootLayout({
       <body className="antialiased">
         <SmoothScroll>
           <ScrollProgress />
-          <Header />
+          <Suspense fallback={null}>
+            <Header />
+          </Suspense>
           <main id="contenu">
-            <PageTransition>{children}</PageTransition>
+            <Suspense fallback={null}>
+              <PageTransition>{children}</PageTransition>
+            </Suspense>
           </main>
-          <Footer />
+          <Suspense fallback={null}>
+            <Footer />
+          </Suspense>
           <BackToTop />
         </SmoothScroll>
       </body>
